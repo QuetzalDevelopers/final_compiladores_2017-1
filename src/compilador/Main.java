@@ -6,8 +6,11 @@
 package compilador;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -18,21 +21,40 @@ import java.util.Scanner;
  * Novas Santamaría José Manuel
  */
 public class Main{
+    static String nombreEntrada;
+    static FileReader archivoEntrada = null;
+    static BufferedReader bufferEntrada = null;
+    static FileWriter archivoSalida = null;
+    static BufferedWriter bufferSalida = null;
+    
+    public void gen(String cadena) throws IOException{
+        bufferSalida.append(cadena);
+    }
+    
+    public void ampliar( ){
+        
+    }
+    
     /**
      * @param args the command line arguments
+     * @throws java.io.IOException
      */
-    public static void main(String[ ] args){
+    public static void main(String[ ] args) throws IOException{
         // TODO code application logic here
         Scanner teclado = new Scanner(System.in);
-        FileReader archivoEntrada;
-        BufferedReader bufferEntrada;
+        archivoSalida = new FileWriter(nombreEntrada+".ci");
+        bufferSalida = new BufferedWriter(archivoSalida);
+        
         if(args.length < 1){
             System.out.print("Escribe la ruta o el nombre del archivo de entrada: ");
+            nombreEntrada = teclado.nextLine( );
             try{
-                archivoEntrada = new FileReader(teclado.nextLine());
+                archivoEntrada = new FileReader(nombreEntrada);
                 bufferEntrada = new BufferedReader(archivoEntrada);
             }catch(FileNotFoundException e){
                 System.out.println(e.getMessage( ));
+                bufferEntrada.close( );
+                archivoEntrada.close( );
                 System.exit(0);
             }
         }else{
@@ -41,9 +63,15 @@ public class Main{
                 bufferEntrada = new BufferedReader(archivoEntrada);
             }catch(FileNotFoundException e){
                 System.out.println(e.getMessage());
+                bufferEntrada.close( );
+                archivoEntrada.close( );
                 System.exit(0);
             }
         }
         System.out.println("Vamos a empezar el análisis");
+        bufferEntrada.close( );
+        archivoEntrada.close( );
+        bufferSalida.close( );
+        archivoSalida.close( );
     }
 }
