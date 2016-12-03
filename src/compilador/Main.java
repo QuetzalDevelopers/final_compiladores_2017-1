@@ -12,14 +12,16 @@ import java.util.Scanner;
 
 /**
  *
- * @author Manu
+ * @authors
+ * Banda Martínez César Eduardo
+ * Martínez Rojas Jorge Antonio
+ * Novas Santamaría José Manuel
  */
-public class Main {
-
+public class Main{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args){
+    public static void main(String[ ] args){
         // TODO code application logic here
         Scanner teclado = new Scanner(System.in);
         FileReader archivoEntrada;
@@ -30,7 +32,7 @@ public class Main {
                 archivoEntrada = new FileReader(teclado.nextLine());
                 bufferEntrada = new BufferedReader(archivoEntrada);
             }catch(FileNotFoundException e){
-                System.out.println(e.getMessage());
+                System.out.println(e.getMessage( ));
                 System.exit(0);
             }
         }else{
