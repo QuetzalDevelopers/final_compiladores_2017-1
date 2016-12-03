@@ -8,8 +8,10 @@ package compilador;
 import java.util.ArrayList;
 
 /**
- *
- * @author Manu
+ * @authors
+ * Banda Martínez César Eduardo
+ * Martínez Rojas Jorge Antonio
+ * Novas Santamaría José Manuel
  */
 public class TablaTipos {
     private ArrayList<Tipo> tabla;
