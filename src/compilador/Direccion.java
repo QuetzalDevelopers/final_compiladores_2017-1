@@ -12,10 +12,12 @@ package compilador;
  * Martínez Rojas Jorge Antonio
  * Novas Santamaría José Manuel
  */
-class Parametros{
-    int entero = 0;
-    float flotante = 0;
-    char caracter = '\0';
-    String cadena = "";
-    double doble = 0;
+public class Direccion {
+    public Parametros valor;
+    public int direccion;
+    public String nombre;
+    
+    public Direccion(String nombre){
+        this.nombre = nombre;
+    }
 }

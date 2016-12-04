@@ -13,6 +13,13 @@ package compilador;
  * Novas Santamaría José Manuel
  */
 public class Tipo {
+   public static final int VOID = 0;
+   public static final int CHAR = 1;
+   public static final int INT = 2;
+   public static final int FLOAT = 3;
+   public static final int STRING = 4;
+   public static final int DOUBLE = 4;
+    
    int posicion;
    int tipo;
    int dimension;

@@ -26,13 +26,48 @@ public class Main{
     static BufferedReader bufferEntrada = null;
     static FileWriter archivoSalida = null;
     static BufferedWriter bufferSalida = null;
+    //private int contadorDirecciones = 0;
+    private int contadorTemporales = 0;
     
     public void gen(String cadena) throws IOException{
         bufferSalida.append(cadena);
     }
     
-    public void ampliar( ){
-        
+    public Direccion newTemp( ){
+        Direccion temporal = new Direccion("t"+contadorTemporales);
+        contadorTemporales++;
+        return temporal;
+    }
+    
+    public Direccion ampliar(Direccion a, Tipo t, Tipo w) throws IOException{
+        if(w.tipo == t.tipo)
+            return a;
+        else if(t.tipo == Tipo.CHAR && w.tipo == Tipo.INT){
+            Direccion t1 = newTemp( );
+            t1.valor.entero = Character.getNumericValue(a.valor.caracter);
+            t1.direccion = a.direccion;
+            gen(t1.nombre+" = "+t1.valor.entero);
+            return t1;
+        }else if(t.tipo == Tipo.INT && w.tipo == Tipo.FLOAT){
+            Direccion t1 = newTemp( );
+            t1.valor.flotante = (float) a.valor.entero;
+            t1.direccion = a.direccion;
+            gen(t1.nombre+" = "+t1.valor.flotante);
+            return t1;
+        }else if(t.tipo == Tipo.FLOAT && w.tipo == Tipo.DOUBLE){
+            Direccion t1 = newTemp( );
+            t1.valor.doble = (double) a.valor.flotante;
+            t1.direccion = a.direccion;
+            gen(t1.nombre+" = "+t1.valor.doble);
+            return t1;
+        }else if(t.tipo == Tipo.INT && w.tipo == Tipo.DOUBLE){
+            Direccion t1 = newTemp( );
+            t1.valor.doble = (double) a.valor.entero;
+            t1.direccion = a.direccion;
+            gen(t1.nombre+" = "+t1.valor.doble);
+            return t1;
+        }
+        return null;
     }
     
     /**
