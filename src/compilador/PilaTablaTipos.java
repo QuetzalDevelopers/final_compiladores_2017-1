@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package compilador;
 
 import java.util.Stack;
@@ -15,24 +10,30 @@ import java.util.Stack;
  * Novas Santamaría José Manuel
  */
 public class PilaTablaTipos {
+    //Definiendo la pila de la tabla de tipos
     Stack<TablaTipos> pila;
     
+    //Inizializando la pila de la tabla de tipos
     public PilaTablaTipos( ){
         pila = new Stack< >( );
     }
    
+    //Método que retorna la última tabla de tipos de la pila
    public TablaTipos getTop( ){
        return pila.lastElement( );
    }
    
+   //Método que retorna la tabla de tipos global
    public TablaTipos getGlobalSymbol( ){
        return pila.firstElement( );
    }
    
+   //Método que saca el último elemento de la pila de la tabla de tipos
    public TablaTipos popSymbol( ){
        return pila.pop( );
    }
    
+   //Método que agrega una tabla de tipos a la pila
    public void pushSymbol(TablaTipos TypeTable){
        pila.push(TypeTable);
    }

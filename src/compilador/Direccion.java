@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package compilador;
 
 /**
@@ -13,10 +8,12 @@ package compilador;
  * Novas Santamaría José Manuel
  */
 public class Direccion {
+    //Atributos de la clase dirección
     public Parametros valor;
     public int direccion;
     public String nombre;
     
+    //Constructor de la clase Dirección
     public Direccion(String nombre){
         this.nombre = nombre;
     }

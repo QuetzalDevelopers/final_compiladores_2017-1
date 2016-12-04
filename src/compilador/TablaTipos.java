@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package compilador;
 
 import java.util.ArrayList;
@@ -14,18 +9,22 @@ import java.util.ArrayList;
  * Novas Santamaría José Manuel
  */
 public class TablaTipos {
-    private ArrayList<Tipo> tabla;
+    //Definiendo la tabla de tipos como una lista ligada
+    private final ArrayList<Tipo> tabla;
     
+    //Inicializando la tabla de tipos en el constructor
     public TablaTipos( ){
-        tabla = new ArrayList<Tipo>( );
+        tabla = new ArrayList< >( );
     }
     
+    //Método que asigna un tipo a la tabla de símbolos
     public int putType(int tipo, int dimension, int tamanio, int tipoBase){
         Tipo tipoAuxiliar = new Tipo(tabla.size( ), tipo, dimension, tamanio, tipoBase);
         tabla.add(tipoAuxiliar);
         return tipoAuxiliar.posicion;
     }
     
+    //Método que obtienen el tipo base de un tipo de la tabla de tipos
     public int getBaseType(int type){
         for(int i=0; i<tabla.size( ); i++){
             Tipo tipoAuxiliar = tabla.get(i);
@@ -35,6 +34,7 @@ public class TablaTipos {
         return -1;
     }
     
+    //Método que obtiene el ancho de un tipo de la tabla de tipos
     public int getWidthType(int type){
         for(int i=0; i<tabla.size( ); i++){
             Tipo tipoAuxiliar = tabla.get(i);
@@ -44,6 +44,7 @@ public class TablaTipos {
         return -1;
     }
     
+    //Método que obtiene la dimension de un tipo de la tabla de tipos
     public int getDimType(int type){
         for(int i=0; i<tabla.size( ); i++){
             Tipo tipoAuxiliar = tabla.get(i);
@@ -53,6 +54,7 @@ public class TablaTipos {
         return -1;
     }
     
+    //Método que obtiene un tipo de la tabla de tipos
     public int getType(int type){
         for(int i=0; i<tabla.size( ); i++){
             Tipo tipoAuxiliar = tabla.get(i);
