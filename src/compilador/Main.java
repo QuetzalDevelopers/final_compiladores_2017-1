@@ -70,6 +70,21 @@ public class Main{
         return null;
     }
     
+    public int compatibles(Tipo t, Tipo w){
+        if(t.tipo == w.tipo)
+            return 1;
+        else if (t.tipo == Tipo.CHAR && w.tipo == Tipo.INT || t.tipo == Tipo.INT && w.tipo == Tipo.CHAR)
+            return 1;
+        else if (t.tipo == Tipo.INT && w.tipo == Tipo.FLOAT || t.tipo == Tipo.FLOAT && w.tipo == Tipo.INT)
+            return 1;
+        else if (t.tipo == Tipo.FLOAT && w.tipo == Tipo.DOUBLE || t.tipo == Tipo.DOUBLE && w.tipo == Tipo.FLOAT)
+            return 1;
+        else if (t.tipo == Tipo.INT && w.tipo == Tipo.DOUBLE || t.tipo == Tipo.DOUBLE && w.tipo == Tipo.INT)
+            return 1;
+        else
+            return -1;
+    }
+    
     /**
      * @param args the command line arguments
      * @throws java.io.IOException
