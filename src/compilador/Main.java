@@ -85,6 +85,29 @@ public class Main{
             return -1;
     }
     
+    public Tipo max(Tipo t, Tipo w){
+        if(t.tipo == w.tipo)
+            return t;
+        else if(t.tipo == Tipo.CHAR && w.tipo == Tipo.INT)
+            return w;
+        else if(t.tipo == Tipo.INT && w.tipo == Tipo.CHAR)
+            return t;
+        else if(t.tipo == Tipo.INT && w.tipo == Tipo.FLOAT)
+            return w;
+        else if(t.tipo == Tipo.FLOAT && w.tipo == Tipo.INT)
+            return t;
+        else if(t.tipo == Tipo.FLOAT && w.tipo == Tipo.DOUBLE)
+            return w;
+        else if(t.tipo == Tipo.DOUBLE && w.tipo == Tipo.FLOAT)
+            return t;
+        else if(t.tipo == Tipo.INT && w.tipo == Tipo.DOUBLE)
+            return w;
+        else if(t.tipo == Tipo.DOUBLE && w.tipo == Tipo.INT)
+            return t;
+        else
+            return null;
+    }
+    
     /**
      * @param args the command line arguments
      * @throws java.io.IOException
