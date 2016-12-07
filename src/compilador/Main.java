@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * @authors
@@ -16,11 +17,18 @@ import java.util.Scanner;
  */
 public class Main{
     
+    //Atributos de la clase Main
+    static int offset = 0;
+    static int contadorEtiquetas = 0;
+    static PilaTablaSimbolos pilaTablaSimbolos = null;
+    static PilaTablaTipos pilaTablaTipos = null;
+    static Stack<Integer> pilaOffset = null;
+    
     //Atributos del archivo de entrada
     static String nombreEntrada;
     static FileReader archivoEntrada = null;
     static BufferedReader bufferEntrada = null;
-    
+        
     //Atributos del archivo de salida
     static FileWriter archivoSalida = null;
     static BufferedWriter bufferSalida = null;
@@ -112,6 +120,28 @@ public class Main{
             return null;
     }
     
+    public TablaSimbolos newSymbols( ){
+        return new TablaSimbolos( );
+    }
+    
+    public TablaTipos newTypes( ){
+        return new TablaTipos( );
+    }
+    
+    public void error(String mensaje){
+        System.out.println(mensaje);
+    }
+    
+    public String newLabel( ){
+        String etiqueta = "L" + contadorEtiquetas;
+        contadorEtiquetas++;
+        return etiqueta;
+    }
+    
+    public void asignar(String codigo, String etiqueta1, String etiqueta2){
+        //Debe de hacer algo
+    }
+    
     /**
      * @param args the command line arguments
      * @throws java.io.IOException
@@ -126,6 +156,12 @@ public class Main{
         //Inicializando el archivo de salida
         archivoSalida = new FileWriter(nombreEntrada+".ci");
         bufferSalida = new BufferedWriter(archivoSalida);
+        
+        //Inicializando la pila de la tabla de símbolos
+        pilaTablaSimbolos = new PilaTablaSimbolos( );
+        
+        //Inizializando la pila de la tabla de tipos
+        pilaTablaTipos = new PilaTablaTipos( );
         
         //En dado caso de que no se especifique el archivo de entrada, se le pregunta al usuario
         if(args.length < 1){
@@ -155,6 +191,8 @@ public class Main{
         
         //Aquí debe de empezar el proceso de traducción
         System.out.println("Vamos a empezar el análisis");
+        //Analizador léxico
+        //Analizador sintáctico
         
         //Cerrando el flujo de entrada y de salida
         bufferEntrada.close( );
